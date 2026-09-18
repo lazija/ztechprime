@@ -1,0 +1,65 @@
+@import 'tailwindcss';
+@import 'lenis/dist/lenis.css';
+
+@theme {
+  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
+  --color-ink: #0b0b0c;
+  --color-paper: #f3efe6;
+  --color-prime: #c4a574;
+  --color-mute: #9a9488;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-prime) 55%, white);
+  color: var(--color-ink);
+}
+
+a {
+  color: inherit;
+}
+
+.story-pin {
+  --story-bg: #0b0b0c;
+  --story-fg: #f3efe6;
+  --story-muted: #9a9488;
+  --story-line: rgba(243, 239, 230, 0.16);
+  background: var(--story-bg);
+  color: var(--story-fg);
+}
+
+.hairline {
+  background: var(--story-line);
+}
+
+.scene {
+  pointer-events: none;
+}
+
+.draw-line {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .draw-line {
+    stroke-dashoffset: 0;
+  }
+}
