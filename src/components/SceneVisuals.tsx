@@ -8,14 +8,14 @@ export function ItConstellation() {
     >
       <path
         className="draw-line it-edge"
-        d="M70 250L140 120L210 190L280 70L350 160"
+        d="M70 250L140 120L210 70L280 70L350 160"
         stroke="currentColor"
         strokeOpacity="0.55"
         strokeWidth="1.1"
       />
       <path
         className="draw-line it-edge"
-        d="M140 120L210 70L280 70"
+        d="M140 120L210 190L280 70"
         stroke="currentColor"
         strokeOpacity="0.3"
         strokeWidth="1.1"

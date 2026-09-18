@@ -31,7 +31,7 @@ export function Close() {
   return (
     <section
       id="conversation"
-      className="bg-paper text-ink px-5 pb-24 pt-28 md:px-10 md:pt-36"
+      className="min-h-svh scroll-mt-0 bg-paper px-5 pb-24 pt-28 text-ink md:px-10 md:pt-36"
     >
       <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-[1.15fr_0.85fr] md:items-end">
         <div>

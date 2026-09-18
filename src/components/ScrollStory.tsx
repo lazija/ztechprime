@@ -16,15 +16,15 @@ function SceneCopy({
   align?: 'left' | 'center'
 }) {
   return (
-    <div className={align === 'center' ? 'mx-auto max-w-[22ch] text-center' : 'max-w-[18ch] md:max-w-[16ch]'}>
+    <div className={align === 'center' ? 'mx-auto max-w-xl text-center' : 'max-w-md'}>
       <p className="text-[11px] tracking-[0.22em] uppercase text-[color:var(--story-muted)] md:text-[12px]">
         {kicker}
       </p>
-      <h2 className="mt-4 font-serif text-[clamp(2.4rem,6.4vw,5.4rem)] leading-[0.96] tracking-[-0.03em]">
+      <h2 className="mt-4 max-w-[11em] font-serif text-[clamp(2.35rem,5.6vw,4.6rem)] leading-[1.02] tracking-[-0.03em]">
         {title}
       </h2>
       <p
-        className={`mt-6 max-w-[44ch] text-[15px] leading-relaxed text-[color:var(--story-muted)] md:text-[17px] ${
+        className={`mt-6 max-w-[42ch] text-[15px] leading-relaxed text-[color:var(--story-muted)] md:text-[17px] ${
           align === 'center' ? 'mx-auto' : ''
         }`}
       >
@@ -91,6 +91,11 @@ export function ScrollStory() {
       gsap.set('.scene-strain, .scene-it, .scene-code, .scene-saas', {
         autoAlpha: 0,
       })
+      itEdges.forEach((edge) => {
+        const path = edge as SVGPathElement
+        const length = path.getTotalLength()
+        gsap.set(path, { strokeDasharray: length, strokeDashoffset: length })
+      })
       gsap.set(itNodes, { scale: 0, transformOrigin: '50% 50%' })
       gsap.set(codeLayers, { autoAlpha: 0, x: 28 })
       gsap.set(saasRows, { autoAlpha: 0, y: 16 })
@@ -119,30 +124,12 @@ export function ScrollStory() {
 
       tl.fromTo(
         '.hero-word',
-        { autoAlpha: 0, y: 28, scale: 1.035 },
-        { autoAlpha: 1, y: 0, scale: 1, duration: 1.05, ease: 'power3.out' },
+        { scale: 1 },
+        { scale: 0.98, duration: 1.2, ease: 'none' },
         0,
       )
-      tl.fromTo(
-        '.hero-rule',
-        { scaleX: 0 },
-        { scaleX: 1, duration: 0.7, ease: 'power2.out' },
-        0.25,
-      )
-      tl.fromTo(
-        '.hero-line',
-        { autoAlpha: 0, y: 14 },
-        { autoAlpha: 1, y: 0, duration: 0.7 },
-        0.4,
-      )
-      tl.fromTo(
-        '.hero-hint',
-        { autoAlpha: 0 },
-        { autoAlpha: 1, duration: 0.5 },
-        0.7,
-      )
 
-      tl.to('.scene-arrive', { autoAlpha: 0, y: -36, duration: 0.7 }, 1.45)
+      tl.to('.scene-arrive', { autoAlpha: 0, y: -36, duration: 0.7 }, 1.35)
       tl.fromTo(
         '.scene-strain',
         { autoAlpha: 0, y: 42 },
@@ -210,7 +197,7 @@ export function ScrollStory() {
       >
         <div className="story-progress pointer-events-none absolute inset-x-0 top-0 z-20 h-px origin-left bg-prime" />
 
-        <section className="scene scene-arrive absolute inset-0 flex flex-col items-center justify-center px-5">
+        <section className="scene scene-arrive absolute inset-0 flex flex-col items-center justify-center px-5 pt-20">
           <p className="hero-word font-serif text-[clamp(3.4rem,12vw,9.2rem)] leading-none tracking-[-0.045em]">
             {arrive.kicker}
           </p>
@@ -226,25 +213,25 @@ export function ScrollStory() {
           </p>
         </section>
 
-        <section className="scene scene-strain absolute inset-0 flex items-center justify-center px-5 opacity-0">
+        <section className="scene scene-strain absolute inset-0 flex items-center justify-center px-5 pt-20 opacity-0">
           <SceneCopy {...strain} align="center" />
         </section>
 
-        <section className="scene scene-it absolute inset-0 flex items-center px-5 opacity-0 md:px-10">
+        <section className="scene scene-it absolute inset-0 flex items-center px-5 pt-20 opacity-0 md:px-10">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 md:flex-row md:items-center md:justify-between">
             <SceneCopy {...it} />
             <ItConstellation />
           </div>
         </section>
 
-        <section className="scene scene-code absolute inset-0 flex items-center px-5 opacity-0 md:px-10">
+        <section className="scene scene-code absolute inset-0 flex items-center px-5 pt-20 opacity-0 md:px-10">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 md:flex-row md:items-center md:justify-between">
             <SceneCopy {...code} />
             <CodeLayers />
           </div>
         </section>
 
-        <section className="scene scene-saas absolute inset-0 flex items-center px-5 opacity-0 md:px-10">
+        <section className="scene scene-saas absolute inset-0 flex items-center px-5 pt-20 opacity-0 md:px-10">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 md:flex-row md:items-center md:justify-between">
             <SceneCopy {...saas} />
             <SaasFrame />

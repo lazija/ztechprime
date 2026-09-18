@@ -54,8 +54,8 @@ a {
 }
 
 .draw-line {
-  stroke-dasharray: 240;
-  stroke-dashoffset: 240;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
