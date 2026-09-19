@@ -48,6 +48,9 @@ export function Close() {
             We read for the sequence — infrastructure, product, and the SaaS
             shape — and reply with a clear next hour, not a deck.
           </p>
+          <p className="mt-8 text-[13px] tracking-[0.04em] text-ink/45">
+            Powered by Ztech Solution
+          </p>
         </div>
 
         <form className="flex flex-col gap-5" onSubmit={onSubmit} noValidate>
@@ -122,8 +125,8 @@ export function Close() {
 export function Footer() {
   return (
     <footer className="flex flex-col gap-3 border-t border-ink/10 bg-paper px-5 py-8 text-[12px] tracking-wide text-ink/45 md:flex-row md:items-center md:justify-between md:px-10">
-      <p>Ztechprime is the face of Ztech Solutions — IT, programming, SaaS consultation</p>
-      <p>Local studio site. No account. No database.</p>
+      <p>Ztechprime — IT, programming, SaaS consultation</p>
+      <p>Powered by Ztech Solution</p>
     </footer>
   )
 }
