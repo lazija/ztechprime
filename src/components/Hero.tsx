@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef } from 'react'
 import { useLanguage } from '../i18n/LanguageProvider'
 import { gsap, ScrollTrigger } from '../lib/gsap'
-import { prefersReducedMotion } from '../lib/motion'
+import { canPinHero, prefersReducedMotion } from '../lib/motion'
 import { ScrollLogo, type ScrollLogoHandle } from './ScrollLogo'
 
 export function Hero() {
@@ -18,6 +18,7 @@ export function Hero() {
 
     if (prefersReducedMotion()) return
 
+    let onResize: (() => void) | undefined
     const ctx = gsap.context(() => {
       const state = { value: 0 }
       gsap.fromTo(
@@ -34,24 +35,43 @@ export function Hero() {
         ease: 'power2.out',
       })
 
-      gsap.to(state, {
-        value: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: pin,
-          start: 'top top',
-          end: '+=95%',
-          pin: true,
-          scrub: 0.65,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => logoRef.current?.setProgress(self.progress),
-        },
-      })
+      let tween: gsap.core.Tween | undefined
+      const applyScroll = () => {
+        tween?.scrollTrigger?.kill()
+        tween?.kill()
+        const usePin = canPinHero({
+          width: window.innerWidth,
+          height: window.innerHeight,
+          contentHeight: pin.offsetHeight,
+        })
+        tween = gsap.to(state, {
+          value: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: pin,
+            start: 'top top',
+            end: usePin ? '+=70%' : 'bottom top',
+            pin: usePin,
+            scrub: true,
+            invalidateOnRefresh: true,
+            onUpdate: (self) => logoRef.current?.setProgress(self.progress),
+          },
+        })
+      }
+
+      applyScroll()
+      onResize = () => {
+        applyScroll()
+        ScrollTrigger.refresh()
+      }
+      window.addEventListener('resize', onResize)
     }, root)
 
     void document.fonts.ready.then(() => ScrollTrigger.refresh())
-    return () => ctx.revert()
+    return () => {
+      if (onResize) window.removeEventListener('resize', onResize)
+      ctx.revert()
+    }
   }, [])
 
   return (

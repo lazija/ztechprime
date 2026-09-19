@@ -21,30 +21,50 @@ export function validateContact(payload: ContactPayload) {
   )
 }
 
+const inbox = 'sasa@ztechprime.com'
+
+export function resolveContactEndpoint(kind: 'dev' | 'prod') {
+  return kind === 'dev' ? '/api/contact' : `https://formsubmit.co/ajax/${inbox}`
+}
+
 export function contactEndpoint() {
-  return import.meta.env.DEV ? '/api/contact' : '/contact.php'
+  return resolveContactEndpoint(import.meta.env.DEV ? 'dev' : 'prod')
+}
+
+export function acceptedContactResponse(data: unknown) {
+  if (!data || typeof data !== 'object') return false
+  const body = data as { ok?: unknown; success?: unknown }
+  return body.ok === true || body.success === true || body.success === 'true'
 }
 
 export async function submitContact(payload: ContactPayload): Promise<ContactResult> {
   if (!validateContact(payload)) return { ok: false, reason: 'invalid' }
+
+  const name = payload.name.trim()
+  const email = payload.email.trim()
+  const company = payload.company.trim()
+  const message = payload.message.trim()
 
   try {
     const response = await fetch(contactEndpoint(), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
-        name: payload.name.trim(),
-        email: payload.email.trim(),
-        company: payload.company.trim(),
-        message: payload.message.trim(),
+        name,
+        email,
+        company,
+        message,
         website: payload.website,
+        _honey: payload.website,
+        _captcha: 'false',
+        _subject: `Project inquiry — ${name}`,
       }),
     })
 
     if (!response.ok) return { ok: false, reason: 'rejected' }
 
-    const data = (await response.json()) as { ok?: boolean }
-    if (data.ok === true) return { ok: true }
+    const data: unknown = await response.json()
+    if (acceptedContactResponse(data)) return { ok: true }
     return { ok: false, reason: 'rejected' }
   } catch {
     return { ok: false, reason: 'network' }

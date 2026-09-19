@@ -8,17 +8,18 @@ import { Nav } from './components/Nav'
 import { Process } from './components/Process'
 import { SiteFooter } from './components/SiteFooter'
 import { gsap, ScrollTrigger } from './lib/gsap'
-import { prefersReducedMotion } from './lib/motion'
+import { prefersFinePointer, prefersReducedMotion } from './lib/motion'
 
 export default function App() {
   useEffect(() => {
     const reduced = prefersReducedMotion()
-    const lenis = reduced
-      ? null
-      : new Lenis({
-          duration: 1.05,
-          wheelMultiplier: 0.9,
-        })
+    const lenis =
+      reduced || !prefersFinePointer()
+        ? null
+        : new Lenis({
+            duration: 0.85,
+            wheelMultiplier: 1,
+          })
 
     const onScroll = () => {
       ScrollTrigger.update()

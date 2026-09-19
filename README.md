@@ -24,9 +24,9 @@ The app listens on [http://127.0.0.1:47291](http://127.0.0.1:47291).
 
 ## Contact form
 
-The form posts JSON to `/api/contact` in development (accepted into `/tmp/ztechprime-inquiries.jsonl`) and to `/contact.php` in production. Success is shown only after the endpoint accepts the message. If sending fails, the visitor can fall back to `sasa@ztechprime.com`.
+The form posts JSON to `/api/contact` in development (accepted into `/tmp/ztechprime-inquiries.jsonl`) and to FormSubmit in production so Caddy can stay a static file server. Success is shown only after the endpoint accepts the message. If sending fails, the visitor can fall back to `sasa@ztechprime.com`.
 
-The server must execute PHP for production submissions. If `mail()` is unavailable, the site still offers the mailto fallback.
+The first production submission sends an activation email to `sasa@ztechprime.com`. Confirm that once, or later messages will not arrive.
 
 ## What you should see
 
