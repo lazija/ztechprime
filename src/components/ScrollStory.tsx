@@ -12,10 +12,7 @@ function HeroOpening({ chapter }: { chapter: (typeof chapters)[number] }) {
         src={brandImages.lockup}
         alt="ztech Solutions — Smart IT Solutions"
       />
-      <p className="hero-eyebrow mt-5 text-[12px] tracking-[0.18em] uppercase text-prime">
-        {chapter.kicker}
-      </p>
-      <h1 className="hero-line mt-3 max-w-[20em] text-[clamp(1.55rem,3.4vw,2.35rem)] font-semibold leading-[1.25] tracking-[-0.02em] text-navy">
+      <h1 className="hero-line mt-8 max-w-[20em] text-[clamp(1.55rem,3.4vw,2.35rem)] font-semibold leading-[1.25] tracking-[-0.02em] text-navy">
         {chapter.title}
       </h1>
       <p className="hero-line mt-4 max-w-[46ch] text-[16px] leading-[1.7] tracking-[0.01em] text-[color:var(--story-muted)] md:text-[17px]">

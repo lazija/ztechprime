@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { brandImages, CONTACT_NAME, CONTACT_PHONE, CONTACT_PHONE_HREF } from '../assets/brand'
+import { CONTACT_NAME, CONTACT_PHONE, CONTACT_PHONE_HREF, POWERED_BY } from '../assets/brand'
 import { INQUIRY_EMAIL } from '../content'
 
 export function Close() {
@@ -38,15 +38,7 @@ export function Close() {
     >
       <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-[1.05fr_0.95fr] md:items-end">
         <div>
-          <img
-            src={brandImages.lockup}
-            alt="ztech Solutions — Smart IT Solutions"
-            className="mb-8 h-auto w-[min(240px,70vw)]"
-          />
-          <p className="text-[12px] tracking-[0.18em] uppercase text-prime">
-            Ztechprime · ztech Solutions
-          </p>
-          <h2 className="mt-4 max-w-[20rem] text-[clamp(2.2rem,5.4vw,4rem)] font-semibold leading-[1.12] tracking-[-0.025em] text-navy">
+          <h2 className="max-w-[20rem] text-[clamp(2.2rem,5.4vw,4rem)] font-semibold leading-[1.12] tracking-[-0.025em] text-navy">
             Tell us where the system is straining.
           </h2>
           <p className="mt-6 max-w-[42ch] text-[17px] leading-relaxed text-mute">
@@ -62,7 +54,7 @@ export function Close() {
             </a>
           </p>
           <p className="mt-6 text-[13px] tracking-[0.04em] text-mute">
-            Powered by Ztech Solution
+            {POWERED_BY}
           </p>
         </div>
 
@@ -137,23 +129,18 @@ export function Close() {
 
 export function Footer() {
   return (
-    <footer className="flex flex-col gap-5 border-t border-navy/10 bg-paper px-5 py-8 text-[12px] tracking-wide text-mute md:flex-row md:items-center md:justify-between md:px-10">
-      <div className="flex items-center gap-4">
-        <img
-          src={brandImages.lockup}
-          alt="ztech Solutions"
-          className="h-14 w-auto"
-        />
-        <p>
-          {CONTACT_NAME}
-          <br />
-          <a className="text-prime" href={CONTACT_PHONE_HREF}>
-            {CONTACT_PHONE}
-          </a>
-        </p>
-      </div>
-      <p>Ztechprime · Smart IT Solutions</p>
-      <p>Powered by Ztech Solution</p>
+    <footer className="flex flex-col gap-3 border-t border-navy/10 bg-paper px-5 py-8 text-[12px] tracking-wide text-mute md:flex-row md:items-center md:justify-between md:px-10">
+      <p>
+        ztech prime
+        <span className="block text-[11px]">{POWERED_BY}</span>
+      </p>
+      <p>
+        {CONTACT_NAME}
+        {' · '}
+        <a className="text-prime" href={CONTACT_PHONE_HREF}>
+          {CONTACT_PHONE}
+        </a>
+      </p>
     </footer>
   )
 }
