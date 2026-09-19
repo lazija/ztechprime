@@ -1,0 +1,36 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Rsync dist to the server
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          keyfile="$(mktemp)"
+          trap 'rm -f "$keyfile"' EXIT
+          printf '%s\n' "$DEPLOY_SSH_KEY" > "$keyfile"
+          chmod 600 "$keyfile"
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+          rsync -az --delete \
+            -e "ssh -i $keyfile -o IdentitiesOnly=yes" \
+            dist/ "root@${DEPLOY_HOST}:/var/www/ztechprime.com/"
