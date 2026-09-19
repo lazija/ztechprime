@@ -1,6 +1,6 @@
 # Ztechprime
 
-A local marketing site for Ztechprime — IT, programming, and SaaS consultation. One scroll-driven story: each scene pins, scrubs, and hands the next one in.
+A local marketing site for Ztechprime, the face of Ztech Solutions — IT, programming, and SaaS consultation. One scroll-driven story: each scene pins, scrubs, and hands the next one in.
 
 No accounts, no database, no remote services. The Node process is the Vite dev server.
 

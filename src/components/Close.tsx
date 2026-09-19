@@ -19,7 +19,9 @@ export function Close() {
       return
     }
 
-    const subject = encodeURIComponent(`Conversation with Ztechprime — ${trimmedName}`)
+    const subject = encodeURIComponent(
+      `Conversation with Ztechprime, Ztech Solutions — ${trimmedName}`,
+    )
     const body = encodeURIComponent(
       `Name: ${trimmedName}\nCompany: ${company.trim() || '—'}\n\n${trimmedNote}`,
     )
@@ -36,15 +38,15 @@ export function Close() {
       <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-[1.15fr_0.85fr] md:items-end">
         <div>
           <p className="text-[12px] tracking-[0.22em] uppercase text-ink/45">
-            One partner
+            Ztechprime · Ztech Solutions
           </p>
           <h2 className="mt-5 max-w-[14ch] font-serif text-[clamp(2.6rem,7vw,5.6rem)] leading-[0.95] tracking-[-0.03em]">
             Tell us where the system is straining.
           </h2>
           <p className="mt-8 max-w-[42ch] text-[17px] leading-relaxed text-ink/70">
-            A short note is enough. We read for the sequence — infrastructure,
-            product, and the SaaS shape — and reply with a clear next hour, not
-            a deck.
+            A short note is enough. Ztechprime is how you reach Ztech Solutions.
+            We read for the sequence — infrastructure, product, and the SaaS
+            shape — and reply with a clear next hour, not a deck.
           </p>
         </div>
 
@@ -120,7 +122,7 @@ export function Close() {
 export function Footer() {
   return (
     <footer className="flex flex-col gap-3 border-t border-ink/10 bg-paper px-5 py-8 text-[12px] tracking-wide text-ink/45 md:flex-row md:items-center md:justify-between md:px-10">
-      <p>Ztechprime — IT, programming, SaaS consultation</p>
+      <p>Ztechprime is the face of Ztech Solutions — IT, programming, SaaS consultation</p>
       <p>Local studio site. No account. No database.</p>
     </footer>
   )

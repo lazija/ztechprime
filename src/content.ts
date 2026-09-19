@@ -5,13 +5,13 @@ export const chapters = [
     id: 'arrive',
     kicker: 'Ztechprime',
     title: 'Systems that stay calm under growth.',
-    body: 'IT, programming, and SaaS consultation — one studio for the work that usually lives in three different rooms.',
+    body: 'The face of Ztech Solutions. IT, programming, and SaaS consultation — one company for the work that usually lives in three different rooms.',
   },
   {
     id: 'strain',
     kicker: 'The sequence',
     title: 'Software rarely fails at launch.',
-    body: 'It fails when the next ten customers arrive. Infrastructure is patched. The product is rewritten. The SaaS idea is sold before the architecture can hold it. Those conversations belong together.',
+    body: 'It fails when the next ten customers arrive. Infrastructure is patched. The product is rewritten. The SaaS idea is sold before the architecture can hold it. Ztechprime exists so Ztech Solutions can hold those conversations in one room.',
   },
   {
     id: 'it',

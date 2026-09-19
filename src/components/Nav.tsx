@@ -32,11 +32,16 @@ export function Nav() {
         <a
           href="#top"
           className="pointer-events-auto flex items-center gap-2.5"
-          aria-label="Ztechprime home"
+          aria-label="Ztechprime, the face of Ztech Solutions"
         >
           <BrandMark className="h-7 w-7" tone={tone} />
-          <span className="text-[13px] font-medium tracking-[0.18em] uppercase">
-            Ztechprime
+          <span className="leading-tight">
+            <span className="block text-[13px] font-medium tracking-[0.18em] uppercase">
+              Ztechprime
+            </span>
+            <span className="block text-[10px] tracking-[0.14em] text-current/55">
+              Ztech Solutions
+            </span>
           </span>
         </a>
         <a
