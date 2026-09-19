@@ -18,16 +18,9 @@ function HeroOpening({ chapter }: { chapter: (typeof chapters)[number] }) {
       <p className="hero-line mt-6 max-w-[46ch] text-[16px] leading-[1.7] tracking-[0.01em] text-[color:var(--story-muted)] md:text-[17px]">
         {chapter.body}
       </p>
-      <ul className="hero-practices mt-9 flex flex-wrap items-center justify-center gap-2.5">
-        {practices.map((practice) => (
-          <li
-            key={practice}
-            className="border border-current/20 px-3.5 py-1.5 text-[11px] tracking-[0.14em] uppercase text-[color:var(--story-fg,#f3efe6)]/80"
-          >
-            {practice}
-          </li>
-        ))}
-      </ul>
+      <p className="hero-practices mt-9 text-[12px] tracking-[0.16em] uppercase text-[color:var(--story-muted)]">
+        {practices.join('  ·  ')}
+      </p>
       <a
         href="#conversation"
         className="hero-cta mt-10 bg-paper px-6 py-3 text-[13px] tracking-[0.14em] text-ink uppercase transition-opacity hover:opacity-80"
