@@ -1,22 +1,13 @@
-# Ztechprime
+# ZTech Prime
 
-A local marketing site for Ztechprime, the product face of ztech solutions — Smart IT Solutions. One scroll-driven story: each scene pins, scrubs, and hands the next one in.
-
-No accounts, no database, no remote services. The Node process is the Vite dev server.
+Marketing site for ZTech Prime — IT consulting, custom software, integrations, and SaaS product development. Powered by ztech solutions.
 
 ## Requirements
 
-- Node 26 (latest). This repo pins it in `.nvmrc`.
+- Node 26 (pinned in `.nvmrc`)
 
 ```bash
 nvm use
-```
-
-If `nvm` is not already on 26:
-
-```bash
-nvm install 26
-nvm use 26
 ```
 
 ## Run locally
@@ -31,8 +22,12 @@ The app listens on [http://127.0.0.1:47291](http://127.0.0.1:47291).
 
 `npm run build` type-checks and writes a production bundle to `dist/`. `npm run preview` serves that bundle.
 
+## Contact form
+
+The form posts JSON to `/api/contact` in development (accepted into `/tmp/ztechprime-inquiries.jsonl`) and to `/contact.php` in production. Success is shown only after the endpoint accepts the message. If sending fails, the visitor can fall back to `sasa@ztechprime.com`.
+
+The server must execute PHP for production submissions. If `mail()` is unavailable, the site still offers the mailto fallback.
+
 ## What you should see
 
-Scroll the page. The opening wordmark gives way to the sequence problem, then IT, programming, and SaaS consultation — one pinned scene at a time. After the last scene, the page rests on a conversation form. The form opens your mail client; nothing is stored.
-
-If the system prefers reduced motion, the same chapters appear as a stacked page with no pin or scrub.
+The hero keeps the circuit Z mark. On scroll, its separate parts move apart and assemble again, then the page continues into Expertise, Why ZTech Prime, How we work, and Contact. Reduced-motion preferences skip the pin and scrub.

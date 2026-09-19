@@ -5,10 +5,10 @@ export const brandImages = {
 }
 
 export const LOGO_ANIM = {
-  spread: 96,
-  rotation: 8,
+  spread: 36,
+  rotation: 4,
   glow: 8,
-  stagger: 16,
+  stagger: 0,
   scale: 0,
   bodyArea: 70000,
 } as const
