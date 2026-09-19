@@ -34,7 +34,7 @@ export default function App() {
   }, [])
 
   return (
-    <div className="min-h-svh bg-ink">
+    <div className="min-h-svh bg-paper">
       <Nav />
       <main>
         <ScrollStory />

@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef } from 'react'
+import { brandImages } from '../assets/brand'
 import { chapters } from '../content'
 
 const practices = ['IT', 'Programming', 'SaaS consultation'] as const
@@ -6,24 +7,26 @@ const practices = ['IT', 'Programming', 'SaaS consultation'] as const
 function HeroOpening({ chapter }: { chapter: (typeof chapters)[number] }) {
   return (
     <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-1 text-center">
-      <p className="hero-eyebrow text-[11px] tracking-[0.22em] uppercase text-prime md:text-[12px]">
-        Work with us
-      </p>
-      <p className="hero-word mt-5 font-serif text-[clamp(3rem,9vw,7.2rem)] leading-[0.92] tracking-[-0.035em]">
+      <img
+        className="hero-word h-auto max-h-[32vh] w-auto max-w-[min(340px,78vw)] object-contain md:max-h-[38vh] md:max-w-[400px]"
+        src={brandImages.lockup}
+        alt="ztech Solutions — Smart IT Solutions"
+      />
+      <p className="hero-eyebrow mt-5 text-[12px] tracking-[0.18em] uppercase text-prime">
         {chapter.kicker}
       </p>
-      <h1 className="hero-line mt-8 max-w-[18em] font-serif text-[clamp(1.65rem,3.6vw,2.7rem)] leading-[1.22] tracking-[-0.015em]">
+      <h1 className="hero-line mt-3 max-w-[20em] text-[clamp(1.55rem,3.4vw,2.35rem)] font-semibold leading-[1.25] tracking-[-0.02em] text-navy">
         {chapter.title}
       </h1>
-      <p className="hero-line mt-6 max-w-[46ch] text-[16px] leading-[1.7] tracking-[0.01em] text-[color:var(--story-muted)] md:text-[17px]">
+      <p className="hero-line mt-4 max-w-[46ch] text-[16px] leading-[1.7] tracking-[0.01em] text-[color:var(--story-muted)] md:text-[17px]">
         {chapter.body}
       </p>
-      <p className="hero-practices mt-9 text-[12px] tracking-[0.16em] uppercase text-[color:var(--story-muted)]">
+      <p className="hero-practices mt-6 text-[12px] tracking-[0.16em] uppercase text-silver">
         {practices.join('  ·  ')}
       </p>
       <a
         href="#conversation"
-        className="hero-cta mt-10 inline-block px-6 py-3 text-[13px] tracking-[0.14em] uppercase transition-opacity hover:opacity-80"
+        className="hero-cta mt-8 inline-block px-6 py-3 text-[13px] tracking-[0.14em] uppercase transition-opacity hover:opacity-80"
       >
         Start a conversation
       </a>
@@ -50,7 +53,7 @@ function SceneCopy({
       <p className="text-[11px] tracking-[0.2em] uppercase text-[color:var(--story-muted)] md:text-[12px]">
         {kicker}
       </p>
-      <h2 className="mt-5 max-w-[16em] font-serif text-[clamp(2.2rem,5vw,4.1rem)] leading-[1.12] tracking-[-0.02em]">
+      <h2 className="mt-5 max-w-[16em] text-[clamp(2.1rem,4.8vw,3.6rem)] font-semibold leading-[1.15] tracking-[-0.025em] text-navy">
         {title}
       </h2>
       <p
@@ -66,7 +69,7 @@ function SceneCopy({
 
 function StaticChapters() {
   return (
-    <div className="bg-ink text-paper">
+    <div className="bg-paper text-ink">
       {chapters.map((chapter) => (
         <section
           key={chapter.id}
@@ -163,7 +166,7 @@ export function ScrollStory() {
         { autoAlpha: 1, y: 0, duration: 0.75 },
         2.98,
       )
-      tl.to(pin, { '--story-bg': '#11161c', duration: 0.85 }, 2.85)
+      tl.to(pin, { '--story-bg': '#eef3fa', duration: 0.85 }, 2.85)
       tl.to(itNodes, { scale: 1, duration: 0.45, stagger: 0.07, ease: 'back.out(1.6)' }, 3.15)
       tl.to(itEdges, { strokeDashoffset: 0, duration: 0.95, stagger: 0.1 }, 3.25)
 
@@ -174,7 +177,7 @@ export function ScrollStory() {
         { autoAlpha: 1, y: 0, duration: 0.75 },
         4.68,
       )
-      tl.to(pin, { '--story-bg': '#14110e', duration: 0.85 }, 4.55)
+      tl.to(pin, { '--story-bg': '#e8eef8', duration: 0.85 }, 4.55)
       tl.to(codeLayers, { autoAlpha: 1, x: 0, duration: 0.5, stagger: 0.11 }, 4.85)
 
       tl.to('.scene-code', { autoAlpha: 0, y: -36, duration: 0.7 }, 6.15)
@@ -184,7 +187,7 @@ export function ScrollStory() {
         { autoAlpha: 1, y: 0, duration: 0.75 },
         6.28,
       )
-      tl.to(pin, { '--story-bg': '#1a1814', duration: 0.85 }, 6.15)
+      tl.to(pin, { '--story-bg': '#e4ecf6', duration: 0.85 }, 6.15)
       tl.to(saasRows, { autoAlpha: 1, y: 0, duration: 0.48, stagger: 0.12 }, 6.45)
     }, root)
 

@@ -2,12 +2,14 @@
 @import 'lenis/dist/lenis.css';
 
 @theme {
-  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
-  --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
-  --color-ink: #0b0b0c;
-  --color-paper: #f3efe6;
-  --color-prime: #c4a574;
-  --color-mute: #9a9488;
+  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #071525;
+  --color-navy: #061428;
+  --color-paper: #f3f6fb;
+  --color-prime: #0084ff;
+  --color-electric: #00a8ff;
+  --color-silver: #8ea0b8;
+  --color-mute: #5a6d82;
 }
 
 html,
@@ -18,8 +20,8 @@ body,
 
 body {
   margin: 0;
-  background: var(--color-ink);
-  color: var(--color-paper);
+  background: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,8 +30,8 @@ body {
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--color-prime) 55%, white);
-  color: var(--color-ink);
+  background: color-mix(in oklab, var(--color-prime) 40%, white);
+  color: var(--color-navy);
 }
 
 a {
@@ -37,10 +39,10 @@ a {
 }
 
 .story-pin {
-  --story-bg: #0b0b0c;
-  --story-fg: #f3efe6;
-  --story-muted: #9a9488;
-  --story-line: rgba(243, 239, 230, 0.16);
+  --story-bg: #f3f6fb;
+  --story-fg: #071525;
+  --story-muted: #5a6d82;
+  --story-line: rgba(7, 21, 37, 0.12);
   background: var(--story-bg);
   color: var(--story-fg);
 }
@@ -55,17 +57,17 @@ a {
 
 .hero-glow {
   position: absolute;
-  inset: 8% 12%;
+  inset: 4% 8%;
   background:
-    radial-gradient(ellipse 55% 45% at 50% 42%, rgba(196, 165, 116, 0.2), transparent 72%),
-    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(243, 239, 230, 0.05), transparent 70%);
+    radial-gradient(ellipse 50% 40% at 50% 28%, rgba(0, 132, 255, 0.16), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 50% 55%, rgba(0, 168, 255, 0.08), transparent 72%);
   pointer-events: none;
 }
 
 a.hero-cta {
   pointer-events: auto;
-  background: #f3efe6;
-  color: #0b0b0c;
+  background: #0084ff;
+  color: #ffffff;
 }
 
 .draw-line {

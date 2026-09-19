@@ -42,7 +42,7 @@ export function ItConstellation() {
           cx={cx}
           cy={cy}
           r={index === 3 ? 6 : 4.2}
-          fill={index === 3 ? '#c4a574' : 'currentColor'}
+          fill={index === 3 ? '#0084ff' : 'currentColor'}
         />
       ))}
     </svg>
@@ -96,7 +96,7 @@ export function SaasFrame() {
           key={row.title}
           className="saas-row border-b border-current/10 px-5 py-5 last:border-b-0"
         >
-          <p className="font-serif text-[28px] leading-none">{row.title}</p>
+          <p className="text-[26px] font-semibold leading-none text-navy">{row.title}</p>
           <p className="mt-2 max-w-[32ch] text-[14px] leading-relaxed opacity-70">
             {row.copy}
           </p>

@@ -5,7 +5,7 @@ export const chapters = [
     id: 'arrive',
     kicker: 'Ztechprime',
     title: 'Bring the strain. We’ll hold the stack.',
-    body: 'IT, programming, and SaaS consultation in one conversation — so the floor, the product, and the model stay in the same room.',
+    body: 'Smart IT Solutions from ztech Solutions. IT, programming, and SaaS consultation in one conversation — so the floor, the product, and the model stay in the same room.',
   },
   {
     id: 'strain',
