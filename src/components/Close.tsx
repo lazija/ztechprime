@@ -40,7 +40,7 @@ export function Close() {
           <p className="text-[12px] tracking-[0.22em] uppercase text-ink/45">
             Ztechprime · Ztech Solutions
           </p>
-          <h2 className="mt-5 max-w-[14ch] font-serif text-[clamp(2.6rem,7vw,5.6rem)] leading-[0.95] tracking-[-0.03em]">
+          <h2 className="mt-5 max-w-[16rem] font-serif text-[clamp(2.4rem,6vw,4.8rem)] leading-[1.12] tracking-[-0.02em] md:max-w-[20rem]">
             Tell us where the system is straining.
           </h2>
           <p className="mt-8 max-w-[42ch] text-[17px] leading-relaxed text-ink/70">

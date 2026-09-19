@@ -1,5 +1,42 @@
 import { useLayoutEffect, useRef } from 'react'
 import { chapters } from '../content'
+
+const practices = ['IT', 'Programming', 'SaaS consultation'] as const
+
+function HeroOpening({ chapter }: { chapter: (typeof chapters)[number] }) {
+  return (
+    <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-1 text-center">
+      <p className="hero-eyebrow text-[11px] tracking-[0.22em] uppercase text-prime md:text-[12px]">
+        Work with us
+      </p>
+      <p className="hero-word mt-5 font-serif text-[clamp(3rem,9vw,7.2rem)] leading-[0.92] tracking-[-0.035em]">
+        {chapter.kicker}
+      </p>
+      <h1 className="hero-line mt-8 max-w-[18em] font-serif text-[clamp(1.65rem,3.6vw,2.7rem)] leading-[1.22] tracking-[-0.015em]">
+        {chapter.title}
+      </h1>
+      <p className="hero-line mt-6 max-w-[46ch] text-[16px] leading-[1.7] tracking-[0.01em] text-[color:var(--story-muted)] md:text-[17px]">
+        {chapter.body}
+      </p>
+      <ul className="hero-practices mt-9 flex flex-wrap items-center justify-center gap-2.5">
+        {practices.map((practice) => (
+          <li
+            key={practice}
+            className="border border-current/20 px-3.5 py-1.5 text-[11px] tracking-[0.14em] uppercase text-[color:var(--story-fg,#f3efe6)]/80"
+          >
+            {practice}
+          </li>
+        ))}
+      </ul>
+      <a
+        href="#conversation"
+        className="hero-cta mt-10 bg-paper px-6 py-3 text-[13px] tracking-[0.14em] text-ink uppercase transition-opacity hover:opacity-80"
+      >
+        Start a conversation
+      </a>
+    </div>
+  )
+}
 import { gsap, ScrollTrigger } from '../lib/gsap'
 import { prefersReducedMotion } from '../lib/motion'
 import { CodeLayers, ItConstellation, SaasFrame } from './SceneVisuals'
@@ -16,15 +53,15 @@ function SceneCopy({
   align?: 'left' | 'center'
 }) {
   return (
-    <div className={align === 'center' ? 'mx-auto max-w-xl text-center' : 'max-w-md'}>
-      <p className="text-[11px] tracking-[0.22em] uppercase text-[color:var(--story-muted)] md:text-[12px]">
+    <div className={align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-lg'}>
+      <p className="text-[11px] tracking-[0.2em] uppercase text-[color:var(--story-muted)] md:text-[12px]">
         {kicker}
       </p>
-      <h2 className="mt-4 max-w-[11em] font-serif text-[clamp(2.35rem,5.6vw,4.6rem)] leading-[1.02] tracking-[-0.03em]">
+      <h2 className="mt-5 max-w-[16em] font-serif text-[clamp(2.2rem,5vw,4.1rem)] leading-[1.12] tracking-[-0.02em]">
         {title}
       </h2>
       <p
-        className={`mt-6 max-w-[42ch] text-[15px] leading-relaxed text-[color:var(--story-muted)] md:text-[17px] ${
+        className={`mt-6 max-w-[46ch] text-[16px] leading-[1.65] tracking-[0.01em] text-[color:var(--story-muted)] md:text-[17px] ${
           align === 'center' ? 'mx-auto' : ''
         }`}
       >
@@ -43,18 +80,7 @@ function StaticChapters() {
           className="mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center gap-10 px-5 py-24 md:flex-row md:items-center md:justify-between md:px-10"
         >
           {chapter.id === 'arrive' ? (
-            <div className="mx-auto text-center">
-              <p className="font-serif text-[clamp(3.4rem,12vw,8rem)] leading-none tracking-[-0.045em]">
-                {chapter.kicker}
-              </p>
-              <div className="mx-auto mt-8 h-px w-24 bg-paper/20" />
-              <p className="mx-auto mt-8 max-w-[22ch] font-serif text-[clamp(1.5rem,3.4vw,2.35rem)] leading-[1.15]">
-                {chapter.title}
-              </p>
-              <p className="mx-auto mt-5 max-w-[40ch] text-[15px] leading-relaxed text-mute">
-                {chapter.body}
-              </p>
-            </div>
+            <HeroOpening chapter={chapter} />
           ) : (
             <SceneCopy
               {...chapter}
@@ -197,18 +223,10 @@ export function ScrollStory() {
       >
         <div className="story-progress pointer-events-none absolute inset-x-0 top-0 z-20 h-px origin-left bg-prime" />
 
-        <section className="scene scene-arrive absolute inset-0 flex flex-col items-center justify-center px-5 pt-20">
-          <p className="hero-word font-serif text-[clamp(3.4rem,12vw,9.2rem)] leading-none tracking-[-0.045em]">
-            {arrive.kicker}
-          </p>
-          <div className="hero-rule hairline mt-8 h-px w-24 origin-center" />
-          <p className="hero-line mt-8 max-w-[22ch] text-center font-serif text-[clamp(1.5rem,3.4vw,2.35rem)] leading-[1.15] tracking-[-0.02em]">
-            {arrive.title}
-          </p>
-          <p className="hero-line mt-5 max-w-[40ch] text-center text-[14px] leading-relaxed text-[color:var(--story-muted)] md:text-[16px]">
-            {arrive.body}
-          </p>
-          <p className="hero-hint absolute bottom-8 text-[11px] tracking-[0.28em] uppercase text-[color:var(--story-muted)]">
+        <section className="scene scene-arrive absolute inset-0 flex flex-col items-center justify-center px-5 pt-24 pb-16">
+          <div className="hero-glow" />
+          <HeroOpening chapter={arrive} />
+          <p className="hero-hint absolute bottom-7 text-[11px] tracking-[0.28em] uppercase text-[color:var(--story-muted)]">
             Scroll
           </p>
         </section>

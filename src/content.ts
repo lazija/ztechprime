@@ -4,8 +4,8 @@ export const chapters = [
   {
     id: 'arrive',
     kicker: 'Ztechprime',
-    title: 'Systems that stay calm under growth.',
-    body: 'The face of Ztech Solutions. IT, programming, and SaaS consultation — one company for the work that usually lives in three different rooms.',
+    title: 'Bring the strain. We’ll hold the stack.',
+    body: 'IT, programming, and SaaS consultation in one conversation — so the floor, the product, and the model stay in the same room.',
   },
   {
     id: 'strain',
