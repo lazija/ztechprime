@@ -3,12 +3,12 @@ import type { Locale } from './i18n/locales'
 
 const en = {
   seo: {
-    title: 'ZTech Prime | IT Consulting, Custom Software & SaaS Development',
+    title: 'ztech prime | IT Consulting, Custom Software & SaaS Development',
     description:
-      'ZTech Prime helps businesses solve complex IT challenges, build reliable custom software, modernize systems, and develop scalable SaaS products.',
+      'ztech prime helps businesses solve complex IT challenges, build reliable custom software, modernize systems, and develop scalable SaaS products.',
   },
   aria: {
-    brand: 'ZTech Prime, powered by ztech solutions',
+    brand: 'ztech prime, powered by ztech solutions',
     primary: 'Primary',
     sections: 'Sections',
     footer: 'Footer',
@@ -24,7 +24,7 @@ const en = {
   hero: {
     eyebrow: 'IT CONSULTING · SOFTWARE ENGINEERING · SAAS DEVELOPMENT',
     title: 'Turn complex technology into business momentum.',
-    body: 'ZTech Prime helps businesses solve critical IT challenges, build reliable custom software, and turn SaaS ideas into scalable products—from strategy and architecture to delivery.',
+    body: 'ztech prime helps businesses solve critical IT challenges, build reliable custom software, and turn SaaS ideas into scalable products—from strategy and architecture to delivery.',
     primary: { href: '#contact', label: 'Discuss your project' },
     secondary: { href: '#expertise', label: 'Explore our expertise' },
     trust: 'Direct senior expertise · Practical solutions · End-to-end delivery',
@@ -56,7 +56,7 @@ const en = {
   },
   about: {
     id: 'about',
-    label: 'Why ZTech Prime',
+    label: 'Why ztech prime',
     title: 'Senior technical thinking without unnecessary complexity.',
     body: 'You work directly with experienced technical leadership that understands both software and the business behind it. We start by identifying the real problem, define the right solution, and stay close to delivery until it works in practice.',
     benefits: [
@@ -121,12 +121,12 @@ export type Copy = typeof en
 
 const bs: Copy = {
   seo: {
-    title: 'ZTech Prime | IT konsalting, custom software i SaaS razvoj',
+    title: 'ztech prime | IT konsalting, custom software i SaaS razvoj',
     description:
-      'ZTech Prime pomaže kompanijama da riješe složene IT izazove, izgrade pouzdan custom software, modernizuju sisteme i razviju SaaS proizvode koji mogu rasti.',
+      'ztech prime pomaže kompanijama da riješe složene IT izazove, izgrade pouzdan custom software, modernizuju sisteme i razviju SaaS proizvode koji mogu rasti.',
   },
   aria: {
-    brand: 'ZTech Prime, powered by ztech solutions',
+    brand: 'ztech prime, powered by ztech solutions',
     primary: 'Glavna navigacija',
     sections: 'Sekcije',
     footer: 'Podnožje',
@@ -142,7 +142,7 @@ const bs: Copy = {
   hero: {
     eyebrow: 'IT KONSALTING · SOFTWARE ENGINEERING · SAAS RAZVOJ',
     title: 'Pretvorite složenu tehnologiju u poslovni zamah.',
-    body: 'ZTech Prime pomaže kompanijama da riješe kritične IT izazove, izgrade pouzdan custom software i pretvore SaaS ideje u proizvode koji skaliraju — od strategije i arhitekture do isporuke.',
+    body: 'ztech prime pomaže kompanijama da riješe kritične IT izazove, izgrade pouzdan custom software i pretvore SaaS ideje u proizvode koji skaliraju — od strategije i arhitekture do isporuke.',
     primary: { href: '#contact', label: 'Razgovarajmo o projektu' },
     secondary: { href: '#expertise', label: 'Pogledajte ekspertizu' },
     trust: 'Direktna seniorska ekspertiza · Praktična rješenja · Isporuka od početka do kraja',
@@ -174,7 +174,7 @@ const bs: Copy = {
   },
   about: {
     id: 'about',
-    label: 'Zašto ZTech Prime',
+    label: 'Zašto ztech prime',
     title: 'Seniorsko tehničko razmišljanje, bez nepotrebne složenosti.',
     body: 'Radite direktno sa iskusnim tehničkim vodstvom koje razumije i software i posao iza njega. Krećemo od pravog problema, definišemo pravo rješenje i ostajemo uz isporuku dok ne proradi u praksi.',
     benefits: [
@@ -237,12 +237,12 @@ const bs: Copy = {
 
 const sr: Copy = {
   seo: {
-    title: 'ZTech Prime | IT консалтинг, custom software и SaaS развој',
+    title: 'ztech prime | IT консалтинг, custom software и SaaS развој',
     description:
-      'ZTech Prime помаже компанијама да реше сложене IT изазове, изграде поуздан custom software, модернизују системе и развију SaaS производе који могу да расту.',
+      'ztech prime помаже компанијама да реше сложене IT изазове, изграде поуздан custom software, модернизују системе и развију SaaS производе који могу да расту.',
   },
   aria: {
-    brand: 'ZTech Prime, powered by ztech solutions',
+    brand: 'ztech prime, powered by ztech solutions',
     primary: 'Главна навигација',
     sections: 'Секције',
     footer: 'Подножје',
@@ -258,7 +258,7 @@ const sr: Copy = {
   hero: {
     eyebrow: 'IT КОНСАЛТИНГ · SOFTWARE ENGINEERING · SAAS РАЗВОЈ',
     title: 'Претворите сложену технологију у пословни замах.',
-    body: 'ZTech Prime помаже компанијама да реше критичне IT изазове, изграде поуздан custom software и претворе SaaS идеје у производе који скалирају — од стратегије и архитектуре до испоруке.',
+    body: 'ztech prime помаже компанијама да реше критичне IT изазове, изграде поуздан custom software и претворе SaaS идеје у производе који скалирају — од стратегије и архитектуре до испоруке.',
     primary: { href: '#contact', label: 'Хајде да разговарамо о пројекту' },
     secondary: { href: '#expertise', label: 'Погледајте експертизу' },
     trust: 'Директна сениорска експертиза · Практична решења · Испорука од почетка до краја',
@@ -290,7 +290,7 @@ const sr: Copy = {
   },
   about: {
     id: 'about',
-    label: 'Зашто ZTech Prime',
+    label: 'Зашто ztech prime',
     title: 'Сениорско техничко размишљање, без непотребне сложености.',
     body: 'Радите директно са искусним техничким руководством које разуме и software и посао иза њега. Крећемо од правог проблема, дефинишемо право решење и остајемо уз испоруку док не проради у пракси.',
     benefits: [

@@ -15,10 +15,10 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-navy/10 bg-paper px-5 py-8 md:px-10">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
-        <a href="#top" className="flex items-center gap-2.5 text-ink" aria-label="ZTech Prime">
+        <a href="#top" className="flex items-center gap-2.5 text-ink" aria-label="ztech prime">
           <BrandMark className="h-8 w-10 object-contain" />
           <span className="leading-tight">
-            <span className="block text-[17px] font-semibold tracking-tight">ZTech Prime</span>
+            <span className="block text-[17px] font-semibold tracking-tight">ztech prime</span>
             <PoweredBy />
           </span>
         </a>

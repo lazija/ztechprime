@@ -45,7 +45,7 @@ $subject = 'Project inquiry — ' . $name;
 $body = "Name: {$name}\nEmail: {$email}\nCompany: " . ($company !== '' ? $company : '—') . "\n\n{$message}\n";
 $encodedName = '=?UTF-8?B?' . base64_encode($name) . '?=';
 $headers = [
-    'From: ZTech Prime <no-reply@ztechprime.com>',
+    'From: ztech prime <no-reply@ztechprime.com>',
     'Reply-To: ' . $encodedName . ' <' . $email . '>',
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',

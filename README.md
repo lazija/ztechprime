@@ -1,6 +1,6 @@
-# ZTech Prime
+# ztech prime
 
-Marketing site for ZTech Prime — IT consulting, custom software, integrations, and SaaS product development. Powered by ztech solutions.
+Marketing site for ztech prime — IT consulting, custom software, integrations, and SaaS product development. Powered by ztech solutions.
 
 ## Requirements
 
@@ -30,4 +30,4 @@ The server must execute PHP for production submissions. If `mail()` is unavailab
 
 ## What you should see
 
-The hero keeps the circuit Z mark. On scroll, its separate parts move apart and assemble again, then the page continues into Expertise, Why ZTech Prime, How we work, and Contact. Reduced-motion preferences skip the pin and scrub.
+The hero keeps the circuit Z mark. On scroll, its separate parts move apart and assemble again, then the page continues into Expertise, Why ztech prime, How we work, and Contact. Reduced-motion preferences skip the pin and scrub.

@@ -13,7 +13,7 @@ export function Nav() {
           <BrandMark className="h-8 w-10 shrink-0 object-contain" />
           <span className="leading-tight">
             <span className="block text-[16px] font-semibold tracking-tight md:text-[17px]">
-              ZTech Prime
+              ztech prime
             </span>
             <PoweredBy />
           </span>

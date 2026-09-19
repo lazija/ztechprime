@@ -1,8 +1,8 @@
-# ZTech Prime — copy in English, Bosnian, Serbian
+# ztech prime — copy in English, Bosnian, Serbian
 
 Toggle u headeru prebacuje EN / BS / СР. Ovo su kompletne verzije istog copyja.
 
-Imena brenda ostaju **ZTech Prime** i **ztech solutions**.
+Imena brenda ostaju **ztech prime** i **ztech solutions**.
 Kontakt ostaje **Saša Lazić · +387 65 637 148 · sasa@ztechprime.com**.
 „Powered by“ u headeru/footeru može ostati na engleskom kao brand lockup.
 
@@ -13,21 +13,21 @@ Srpski = ekavica, ćirilica. Bosanski = ijekavica, latinica.
 ## English
 
 ### Header / footer
-- Brand: ZTech Prime
+- Brand: ztech prime
 - Powered by: Powered by
 - Parent: ztech solutions
-- Aria: ZTech Prime, powered by ztech solutions
+- Aria: ztech prime, powered by ztech solutions
 - Nav: Expertise · How we work · About · Contact
 - Header CTA: Discuss your project
 
 ### SEO
-- Title: ZTech Prime | IT Consulting, Custom Software & SaaS Development
-- Description: ZTech Prime helps businesses solve complex IT challenges, build reliable custom software, modernize systems, and develop scalable SaaS products.
+- Title: ztech prime | IT Consulting, Custom Software & SaaS Development
+- Description: ztech prime helps businesses solve complex IT challenges, build reliable custom software, modernize systems, and develop scalable SaaS products.
 
 ### Hero
 - Eyebrow: IT CONSULTING · SOFTWARE ENGINEERING · SAAS DEVELOPMENT
 - Headline: Turn complex technology into business momentum.
-- Body: ZTech Prime helps businesses solve critical IT challenges, build reliable custom software, and turn SaaS ideas into scalable products—from strategy and architecture to delivery.
+- Body: ztech prime helps businesses solve critical IT challenges, build reliable custom software, and turn SaaS ideas into scalable products—from strategy and architecture to delivery.
 - Primary CTA: Discuss your project
 - Secondary CTA: Explore our expertise
 - Trust: Direct senior expertise · Practical solutions · End-to-end delivery
@@ -42,7 +42,7 @@ Srpski = ekavica, ćirilica. Bosanski = ijekavica, latinica.
 4. Integrations & Modernization — Connect disconnected systems, modernize legacy applications, and remove the technical bottlenecks limiting your operations.
 
 ### About
-- Label: Why ZTech Prime
+- Label: Why ztech prime
 - Heading: Senior technical thinking without unnecessary complexity.
 - Body: You work directly with experienced technical leadership that understands both software and the business behind it. We start by identifying the real problem, define the right solution, and stay close to delivery until it works in practice.
 - Benefits:
@@ -86,21 +86,21 @@ Srpski = ekavica, ćirilica. Bosanski = ijekavica, latinica.
 ## Bosanski
 
 ### Header / footer
-- Brand: ZTech Prime
+- Brand: ztech prime
 - Powered by: Powered by *(ili: Pokreće)*
 - Parent: ztech solutions
-- Aria: ZTech Prime, powered by ztech solutions
+- Aria: ztech prime, powered by ztech solutions
 - Nav: Ekspertiza · Kako radimo · O nama · Kontakt
 - Header CTA: Razgovarajmo o projektu
 
 ### SEO
-- Title: ZTech Prime | IT konsalting, custom software i SaaS razvoj
-- Description: ZTech Prime pomaže kompanijama da riješe složene IT izazove, izgrade pouzdan custom software, modernizuju sisteme i razviju SaaS proizvode koji mogu rasti.
+- Title: ztech prime | IT konsalting, custom software i SaaS razvoj
+- Description: ztech prime pomaže kompanijama da riješe složene IT izazove, izgrade pouzdan custom software, modernizuju sisteme i razviju SaaS proizvode koji mogu rasti.
 
 ### Hero
 - Eyebrow: IT KONSALTING · SOFTWARE ENGINEERING · SAAS RAZVOJ
 - Headline: Pretvorite složenu tehnologiju u poslovni zamah.
-- Body: ZTech Prime pomaže kompanijama da riješe kritične IT izazove, izgrade pouzdan custom software i pretvore SaaS ideje u proizvode koji skaliraju — od strategije i arhitekture do isporuke.
+- Body: ztech prime pomaže kompanijama da riješe kritične IT izazove, izgrade pouzdan custom software i pretvore SaaS ideje u proizvode koji skaliraju — od strategije i arhitekture do isporuke.
 - Primary CTA: Razgovarajmo o projektu
 - Secondary CTA: Pogledajte ekspertizu
 - Trust: Direktna seniorska ekspertiza · Praktična rješenja · Isporuka od početka do kraja
@@ -115,7 +115,7 @@ Srpski = ekavica, ćirilica. Bosanski = ijekavica, latinica.
 4. Integracije i modernizacija — Povežite nepovezane sisteme, modernizujte naslijeđene aplikacije i uklonite tehnička uska grla koja koče operacije.
 
 ### O nama
-- Label: Zašto ZTech Prime
+- Label: Zašto ztech prime
 - Heading: Seniorsko tehničko razmišljanje, bez nepotrebne složenosti.
 - Body: Radite direktno sa iskusnim tehničkim vodstvom koje razumije i software i posao iza njega. Krećemo od pravog problema, definišemo pravo rješenje i ostajemo uz isporuku dok ne proradi u praksi.
 - Benefits:
@@ -159,21 +159,21 @@ Srpski = ekavica, ćirilica. Bosanski = ijekavica, latinica.
 ## Srpski (ћирилица)
 
 ### Header / footer
-- Brand: ZTech Prime
+- Brand: ztech prime
 - Powered by: Powered by *(или: Покреће)*
 - Parent: ztech solutions
-- Aria: ZTech Prime, powered by ztech solutions
+- Aria: ztech prime, powered by ztech solutions
 - Nav: Експертиза · Како радимо · О нама · Контакт
 - Header CTA: Хајде да разговарамо о пројекту
 
 ### SEO
-- Title: ZTech Prime | IT консалтинг, custom software и SaaS развој
-- Description: ZTech Prime помаже компанијама да реше сложене IT изазове, изграде поуздан custom software, модернизују системе и развију SaaS производе који могу да расту.
+- Title: ztech prime | IT консалтинг, custom software и SaaS развој
+- Description: ztech prime помаже компанијама да реше сложене IT изазове, изграде поуздан custom software, модернизују системе и развију SaaS производе који могу да расту.
 
 ### Hero
 - Eyebrow: IT КОНСАЛТИНГ · SOFTWARE ENGINEERING · SAAS РАЗВОЈ
 - Headline: Претворите сложену технологију у пословни замах.
-- Body: ZTech Prime помаже компанијама да реше критичне IT изазове, изграде поуздан custom software и претворе SaaS идеје у производе који скалирају — од стратегије и архитектуре до испоруке.
+- Body: ztech prime помаже компанијама да реше критичне IT изазове, изграде поуздан custom software и претворе SaaS идеје у производе који скалирају — од стратегије и архитектуре до испоруке.
 - Primary CTA: Хајде да разговарамо о пројекту
 - Secondary CTA: Погледајте експертизу
 - Trust: Директна сениорска експертиза · Практична решења · Испорука од почетка до краја
@@ -188,7 +188,7 @@ Srpski = ekavica, ćirilica. Bosanski = ijekavica, latinica.
 4. Интеграције и модернизација — Повежите неповезане системе, модернизујте наслеђене апликације и уклоните техничка уска грла која коче операције.
 
 ### О нама
-- Label: Зашто ZTech Prime
+- Label: Зашто ztech prime
 - Heading: Сениорско техничко размишљање, без непотребне сложености.
 - Body: Радите директно са искусним техничким руководством које разуме и software и посао иза њега. Крећемо од правог проблема, дефинишемо право решење и остајемо уз испоруку док не проради у пракси.
 - Benefits:
