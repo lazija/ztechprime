@@ -138,13 +138,13 @@ export function Contact() {
             />
           </label>
           <label className="honeypot" aria-hidden="true">
-            Website
+            Company URL
             <input
               tabIndex={-1}
               autoComplete="off"
               value={website}
               onChange={(event) => setWebsite(event.target.value)}
-              name="website"
+              name="hp_url"
             />
           </label>
           <label className="block">

@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import { test } from 'node:test'
 import {
   acceptedContactResponse,
@@ -36,4 +37,10 @@ test('validateContact still rejects empty or honeypot submissions', () => {
   assert.equal(validateContact(valid), true)
   assert.equal(validateContact({ ...valid, website: 'https://spam.example' }), false)
   assert.equal(validateContact({ ...valid, message: 'short' }), false)
+})
+
+test('contact honeypot is not a website autofill field', () => {
+  const src = readFileSync(new URL('../components/Contact.tsx', import.meta.url), 'utf8')
+  assert.doesNotMatch(src, /name="website"/)
+  assert.match(src, /name="hp_url"/)
 })

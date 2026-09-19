@@ -5,15 +5,3 @@ export function prefersReducedMotion(): boolean {
 export function prefersFinePointer(): boolean {
   return window.matchMedia('(hover: hover) and (pointer: fine)').matches
 }
-
-export function canPinHero({
-  width,
-  height,
-  contentHeight,
-}: {
-  width: number
-  height: number
-  contentHeight: number
-}) {
-  return width >= 1024 && contentHeight <= height
-}

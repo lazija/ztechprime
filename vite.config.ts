@@ -1,11 +1,8 @@
-import { appendFileSync, mkdirSync } from 'node:fs'
-import { dirname } from 'node:path'
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig, type Plugin } from 'vite'
-
-const inbox = '/tmp/ztechprime-inquiries.jsonl'
+import { inboxPath, recordInquiry } from './scripts/contact-inbox.ts'
 
 function readBody(req: IncomingMessage): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -33,27 +30,21 @@ async function handleContact(req: IncomingMessage, res: ServerResponse) {
     return
   }
 
-  if (typeof data.website === 'string' && data.website.trim()) {
-    res.statusCode = 200
-    res.end(JSON.stringify({ ok: true }))
-    return
-  }
-
-  const name = String(data.name ?? '').trim()
-  const email = String(data.email ?? '').trim()
-  const message = String(data.message ?? '').trim()
-  const company = String(data.company ?? '').trim()
-  if (!name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  const inbox = inboxPath()
+  const saved = recordInquiry(inbox, {
+    name: String(data.name ?? ''),
+    email: String(data.email ?? ''),
+    company: String(data.company ?? ''),
+    message: String(data.message ?? ''),
+    website: String(data.website ?? ''),
+  })
+  if (!saved.ok) {
     res.statusCode = 422
     res.end(JSON.stringify({ ok: false }))
     return
   }
 
-  mkdirSync(dirname(inbox), { recursive: true })
-  appendFileSync(
-    inbox,
-    `${JSON.stringify({ at: new Date().toISOString(), name, email, company, message })}\n`,
-  )
+  console.info(`[contact] accepted ${String(data.email ?? '')} → ${inbox}`)
   res.statusCode = 200
   res.end(JSON.stringify({ ok: true }))
 }
