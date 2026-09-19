@@ -62,8 +62,10 @@ a {
   pointer-events: none;
 }
 
-.hero-cta {
+a.hero-cta {
   pointer-events: auto;
+  background: #f3efe6;
+  color: #0b0b0c;
 }
 
 .draw-line {

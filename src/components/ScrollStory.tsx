@@ -23,7 +23,7 @@ function HeroOpening({ chapter }: { chapter: (typeof chapters)[number] }) {
       </p>
       <a
         href="#conversation"
-        className="hero-cta mt-10 bg-paper px-6 py-3 text-[13px] tracking-[0.14em] text-ink uppercase transition-opacity hover:opacity-80"
+        className="hero-cta mt-10 inline-block px-6 py-3 text-[13px] tracking-[0.14em] uppercase transition-opacity hover:opacity-80"
       >
         Start a conversation
       </a>
