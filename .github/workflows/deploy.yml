@@ -24,13 +24,36 @@ jobs:
           DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
         run: |
           set -euo pipefail
+          if [ -z "${DEPLOY_HOST:-}" ]; then
+            echo "DEPLOY_HOST secret is empty" >&2
+            exit 1
+          fi
+          if [ -z "${DEPLOY_SSH_KEY:-}" ]; then
+            echo "DEPLOY_SSH_KEY secret is empty" >&2
+            exit 1
+          fi
+
+          sudo apt-get update -qq
+          sudo apt-get install -y rsync openssh-client
+
           keyfile="$(mktemp)"
           trap 'rm -f "$keyfile"' EXIT
-          printf '%s\n' "$DEPLOY_SSH_KEY" > "$keyfile"
+          printf '%s\n' "$DEPLOY_SSH_KEY" | tr -d '\r' > "$keyfile"
           chmod 600 "$keyfile"
+          if ! grep -q "BEGIN .*PRIVATE KEY" "$keyfile"; then
+            echo "DEPLOY_SSH_KEY does not look like a private key" >&2
+            exit 1
+          fi
+
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-          ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+          hostkeys="$(ssh-keyscan -H -T 15 "$DEPLOY_HOST" 2>/dev/null || true)"
+          if [ -z "$hostkeys" ]; then
+            echo "ssh-keyscan returned no host keys for DEPLOY_HOST" >&2
+            exit 1
+          fi
+          printf '%s\n' "$hostkeys" >> ~/.ssh/known_hosts
+
           rsync -az --delete \
-            -e "ssh -i $keyfile -o IdentitiesOnly=yes" \
+            -e "ssh -i $keyfile -o IdentitiesOnly=yes -o BatchMode=yes -o ConnectTimeout=15" \
             dist/ "root@${DEPLOY_HOST}:/var/www/ztechprime.com/"
