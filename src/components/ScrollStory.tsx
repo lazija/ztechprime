@@ -1,17 +1,36 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useRef, type Ref } from 'react'
 import { brandImages } from '../assets/brand'
 import { chapters } from '../content'
+import { gsap, ScrollTrigger } from '../lib/gsap'
+import { prefersReducedMotion } from '../lib/motion'
+import { CodeLayers, ItConstellation, SaasFrame } from './SceneVisuals'
+import { ScrollLogo, type ScrollLogoHandle } from './ScrollLogo'
 
 const practices = ['IT', 'Programming', 'SaaS consultation'] as const
 
-function HeroOpening({ chapter }: { chapter: (typeof chapters)[number] }) {
+function HeroOpening({
+  chapter,
+  logoRef,
+}: {
+  chapter: (typeof chapters)[number]
+  logoRef?: Ref<ScrollLogoHandle>
+}) {
   return (
     <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-1 text-center">
-      <img
-        className="hero-word h-auto max-h-[32vh] w-auto max-w-[min(340px,78vw)] object-contain md:max-h-[38vh] md:max-w-[400px]"
-        src={brandImages.lockup}
-        alt="ztech Solutions — Smart IT Solutions"
-      />
+      <div className="hero-word relative">
+        <div className="hero-mark-stage">
+          <div className="hero-mark-glow" aria-hidden="true" />
+          {logoRef ? (
+            <ScrollLogo ref={logoRef} />
+          ) : (
+            <img
+              className="h-auto w-[min(220px,56vw)] object-contain md:w-[260px]"
+              src={brandImages.mark}
+              alt="ztech prime"
+            />
+          )}
+        </div>
+      </div>
       <h1 className="hero-line mt-8 max-w-[20em] text-[clamp(1.55rem,3.4vw,2.35rem)] font-semibold leading-[1.25] tracking-[-0.02em] text-navy">
         {chapter.title}
       </h1>
@@ -30,9 +49,6 @@ function HeroOpening({ chapter }: { chapter: (typeof chapters)[number] }) {
     </div>
   )
 }
-import { gsap, ScrollTrigger } from '../lib/gsap'
-import { prefersReducedMotion } from '../lib/motion'
-import { CodeLayers, ItConstellation, SaasFrame } from './SceneVisuals'
 
 function SceneCopy({
   kicker,
@@ -92,6 +108,7 @@ function StaticChapters() {
 export function ScrollStory() {
   const rootRef = useRef<HTMLDivElement>(null)
   const pinRef = useRef<HTMLDivElement>(null)
+  const logoRef = useRef<ScrollLogoHandle>(null)
 
   useLayoutEffect(() => {
     if (prefersReducedMotion()) return
@@ -119,6 +136,20 @@ export function ScrollStory() {
       gsap.set(codeLayers, { autoAlpha: 0, x: 28 })
       gsap.set(saasRows, { autoAlpha: 0, y: 16 })
 
+      gsap.fromTo(
+        '.hero-mark-stage',
+        { y: -160, autoAlpha: 0, rotate: -12 },
+        { y: 0, autoAlpha: 1, rotate: 0, duration: 1.2, ease: 'power3.out' },
+      )
+      gsap.to('.hero-mark-stage', {
+        y: -10,
+        duration: 2.6,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: 1.25,
+      })
+
       const tl = gsap.timeline({
         defaults: { ease: 'power2.inOut' },
         scrollTrigger: {
@@ -129,6 +160,12 @@ export function ScrollStory() {
           scrub: 0.7,
           anticipatePin: 1,
           invalidateOnRefresh: true,
+          onLeave: () => {
+            gsap.set('.scene', { autoAlpha: 0 })
+          },
+          onEnterBack: () => {
+            gsap.set('.scene-saas', { autoAlpha: 1, y: 0 })
+          },
         },
       })
 
@@ -146,6 +183,18 @@ export function ScrollStory() {
         { scale: 1 },
         { scale: 0.98, duration: 1.2, ease: 'none' },
         0,
+      )
+
+      const logoProgress = { value: 0 }
+      tl.to(
+        logoProgress,
+        {
+          value: 1,
+          duration: 1.25,
+          ease: 'none',
+          onUpdate: () => logoRef.current?.setProgress(logoProgress.value),
+        },
+        0.04,
       )
 
       tl.to('.scene-arrive', { autoAlpha: 0, y: -36, duration: 0.7 }, 1.35)
@@ -186,6 +235,8 @@ export function ScrollStory() {
       )
       tl.to(pin, { '--story-bg': '#e4ecf6', duration: 0.85 }, 6.15)
       tl.to(saasRows, { autoAlpha: 1, y: 0, duration: 0.48, stagger: 0.12 }, 6.45)
+      tl.to('.scene-saas', { autoAlpha: 0, y: -28, duration: 0.7 }, 7.55)
+      tl.to(pin, { '--story-bg': '#f3f6fb', duration: 0.6 }, 7.55)
     }, root)
 
     const refresh = () => {
@@ -218,7 +269,7 @@ export function ScrollStory() {
 
         <section className="scene scene-arrive absolute inset-0 flex flex-col items-center justify-center px-5 pt-24 pb-16">
           <div className="hero-glow" />
-          <HeroOpening chapter={arrive} />
+          <HeroOpening chapter={arrive} logoRef={logoRef} />
           <p className="hero-hint absolute bottom-7 text-[11px] tracking-[0.28em] uppercase text-[color:var(--story-muted)]">
             Scroll
           </p>

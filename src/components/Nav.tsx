@@ -3,7 +3,7 @@ import { BrandMark } from './BrandMark'
 
 export function Nav() {
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-40 text-ink">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-40 bg-paper text-ink">
       <div className="flex items-center justify-between px-5 py-4 md:px-10">
         <a
           href="#top"

@@ -1,6 +1,14 @@
 import { useState, type FormEvent } from 'react'
-import { CONTACT_NAME, CONTACT_PHONE, CONTACT_PHONE_HREF, POWERED_BY } from '../assets/brand'
+import {
+  CONTACT_EMAIL,
+  CONTACT_EMAIL_HREF,
+  CONTACT_NAME,
+  CONTACT_PHONE,
+  CONTACT_PHONE_HREF,
+  POWERED_BY,
+} from '../assets/brand'
 import { INQUIRY_EMAIL } from '../content'
+import { BrandMark } from './BrandMark'
 
 export function Close() {
   const [name, setName] = useState('')
@@ -21,7 +29,7 @@ export function Close() {
     }
 
     const subject = encodeURIComponent(
-      `Conversation with Ztechprime, ztech Solutions — ${trimmedName}`,
+      `Conversation with Ztechprime, ztech solutions — ${trimmedName}`,
     )
     const body = encodeURIComponent(
       `Name: ${trimmedName}\nCompany: ${company.trim() || '—'}\n\n${trimmedNote}`,
@@ -34,7 +42,7 @@ export function Close() {
   return (
     <section
       id="conversation"
-      className="min-h-svh scroll-mt-0 bg-paper px-5 pb-24 pt-28 text-ink md:px-10 md:pt-36"
+      className="relative z-10 min-h-svh scroll-mt-0 bg-paper px-5 pb-24 pt-28 text-ink md:px-10 md:pt-36"
     >
       <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-[1.05fr_0.95fr] md:items-end">
         <div>
@@ -42,7 +50,7 @@ export function Close() {
             Tell us where the system is straining.
           </h2>
           <p className="mt-6 max-w-[42ch] text-[17px] leading-relaxed text-mute">
-            A short note is enough. Ztechprime is how you reach ztech Solutions.
+            A short note is enough. Ztechprime is how you reach ztech solutions.
             We read for the sequence — infrastructure, product, and the SaaS
             shape — and reply with a clear next hour, not a deck.
           </p>
@@ -51,6 +59,10 @@ export function Close() {
             <span className="text-mute"> · </span>
             <a className="text-prime hover:opacity-80" href={CONTACT_PHONE_HREF}>
               {CONTACT_PHONE}
+            </a>
+            <span className="text-mute"> · </span>
+            <a className="text-prime hover:opacity-80" href={CONTACT_EMAIL_HREF}>
+              {CONTACT_EMAIL}
             </a>
           </p>
           <p className="mt-6 text-[13px] tracking-[0.04em] text-mute">
@@ -129,16 +141,27 @@ export function Close() {
 
 export function Footer() {
   return (
-    <footer className="flex flex-col gap-3 border-t border-navy/10 bg-paper px-5 py-8 text-[12px] tracking-wide text-mute md:flex-row md:items-center md:justify-between md:px-10">
-      <p>
-        ztech prime
-        <span className="block text-[11px]">{POWERED_BY}</span>
-      </p>
-      <p>
+    <footer className="flex flex-col gap-4 border-t border-navy/10 bg-paper px-5 py-8 text-mute md:flex-row md:items-center md:justify-between md:px-10">
+      <a href="#top" className="flex items-center gap-2.5 text-ink" aria-label="ztech prime">
+        <BrandMark className="h-8 w-10 object-contain" />
+        <span className="leading-tight">
+          <span className="block text-[17px] font-semibold tracking-tight">
+            ztech prime
+          </span>
+          <span className="block text-[11px] tracking-[0.02em] text-mute">
+            {POWERED_BY}
+          </span>
+        </span>
+      </a>
+      <p className="text-[12px] tracking-wide">
         {CONTACT_NAME}
         {' · '}
         <a className="text-prime" href={CONTACT_PHONE_HREF}>
           {CONTACT_PHONE}
+        </a>
+        {' · '}
+        <a className="text-prime" href={CONTACT_EMAIL_HREF}>
+          {CONTACT_EMAIL}
         </a>
       </p>
     </footer>

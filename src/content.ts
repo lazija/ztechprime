@@ -1,17 +1,19 @@
-export const INQUIRY_EMAIL = 'hello@ztechprime.com'
+import { CONTACT_EMAIL } from './assets/brand'
+
+export const INQUIRY_EMAIL = CONTACT_EMAIL
 
 export const chapters = [
   {
     id: 'arrive',
     kicker: 'Ztechprime',
     title: 'Bring the strain. We’ll hold the stack.',
-    body: 'Smart IT Solutions from ztech Solutions. IT, programming, and SaaS consultation in one conversation — so the floor, the product, and the model stay in the same room.',
+    body: 'Smart IT Solutions from ztech solutions. IT, programming, and SaaS consultation in one conversation — so the floor, the product, and the model stay in the same room.',
   },
   {
     id: 'strain',
     kicker: 'The sequence',
     title: 'Software rarely fails at launch.',
-    body: 'It fails when the next ten customers arrive. Infrastructure is patched. The product is rewritten. The SaaS idea is sold before the architecture can hold it. Ztechprime exists so Ztech Solutions can hold those conversations in one room.',
+    body: 'It fails when the next ten customers arrive. Infrastructure is patched. The product is rewritten. The SaaS idea is sold before the architecture can hold it. Ztechprime exists so ztech solutions can hold those conversations in one room.',
   },
   {
     id: 'it',
