@@ -1,7 +1,8 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useCallback, useLayoutEffect, useRef } from 'react'
 import { useLanguage } from '../i18n/LanguageProvider'
 import { gsap, ScrollTrigger } from '../lib/gsap'
 import { prefersReducedMotion } from '../lib/motion'
+import { useScrollProgress } from '../lib/useScrollProgress'
 import { ScrollLogo, type ScrollLogoHandle } from './ScrollLogo'
 
 export function Hero() {
@@ -10,16 +11,17 @@ export function Hero() {
   const rootRef = useRef<HTMLElement>(null)
   const pinRef = useRef<HTMLDivElement>(null)
   const logoRef = useRef<ScrollLogoHandle>(null)
+  const onLogoProgress = useCallback((progress: number) => {
+    logoRef.current?.setProgress(progress)
+  }, [])
+
+  useScrollProgress(pinRef, onLogoProgress)
 
   useLayoutEffect(() => {
     const root = rootRef.current
-    const pin = pinRef.current
-    if (!root || !pin) return
-
-    if (prefersReducedMotion()) return
+    if (!root || prefersReducedMotion()) return
 
     const ctx = gsap.context(() => {
-      const state = { value: 0 }
       gsap.fromTo(
         '.hero-mark-stage',
         { y: -36, autoAlpha: 0 },
@@ -33,19 +35,6 @@ export function Hero() {
         delay: 0.15,
         ease: 'power2.out',
       })
-
-      gsap.to(state, {
-        value: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: pin,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => logoRef.current?.setProgress(self.progress),
-        },
-      })
     }, root)
 
     void document.fonts.ready.then(() => ScrollTrigger.refresh())
@@ -54,7 +43,7 @@ export function Hero() {
 
   return (
     <section ref={rootRef} id="top" className="bg-paper">
-      <div ref={pinRef} className="relative flex min-h-svh flex-col justify-start px-5 pt-36 pb-12 md:justify-center md:px-10 md:pt-28 md:pb-16">
+      <div ref={pinRef} className="relative flex flex-col justify-start px-5 pt-36 pb-16 md:px-10 md:pt-28 md:pb-20">
         <div className="hero-glow" />
         <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
           <div className="hero-mark-stage shrink-0">

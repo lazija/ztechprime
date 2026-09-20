@@ -1,13 +1,17 @@
+import { useRef } from 'react'
 import { useLanguage } from '../i18n/LanguageProvider'
+import { useGsapReveal } from '../lib/useGsapReveal'
 import { SectionHeading } from './SectionHeading'
 
 export function About() {
   const { about } = useLanguage().copy
+  const rootRef = useRef<HTMLElement>(null)
+  useGsapReveal(rootRef, { selector: '[data-reveal]', stagger: 0.07 })
 
   return (
-    <section id={about.id} className="scroll-mt-28 bg-[#eef3fa] px-5 py-20 md:scroll-mt-24 md:px-10 md:py-28">
+    <section ref={rootRef} id={about.id} className="scroll-mt-28 bg-[#eef3fa] px-5 py-20 md:scroll-mt-24 md:px-10 md:py-28">
       <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-        <div>
+        <div data-reveal>
           <SectionHeading label={about.label} title={about.title} />
           <p className="mt-6 max-w-[48ch] text-[17px] leading-[1.7] text-mute">{about.body}</p>
           <p className="mt-8 max-w-[46ch] border-l-2 border-prime pl-4 text-[15px] leading-[1.65] text-navy">
@@ -18,6 +22,7 @@ export function About() {
           {about.benefits.map((item) => (
             <li
               key={item}
+              data-reveal
               className="flex gap-3 border-b border-navy/10 pb-4 text-[16px] leading-[1.5] text-ink"
             >
               <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-prime" aria-hidden="true" />
